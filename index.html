@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Nossa História</title>
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS (via CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Topo (Ícone) -->
+    <div class="top-icon text-center py-3">
+        <img src="https://via.placeholder.com/50" alt="Ícone da Empresa" aria-label="Ícone da Empresa">
+    </div>
+
+    <!-- Header -->
+    <header class="container-fluid py-4 bg-light">
+        <div class="container">
+            <h1 class="text-center">Sobre Nós</h1>
+            <p class="lead text-center">Conheça nossa história, missão e valores.</p>
+        </div>
+    </header>
+
+    <!-- Menu (Placeholder) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Menu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#introducao">Introdução</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#missao-visao">Missão e Visão</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#avaliacoes">Avaliações</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contribuicao">Contribua</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <!-- Introdução -->
+        <section id="introducao" class="mb-5">
+            <h2 class="text-center mb-4">Nossa Jornada</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Nossa empresa foi fundada com a visão de...</p>
+        </section>
+
+        <!-- Missão/Visão (em grid) -->
+        <section id="missao-visao" class="mb-5">
+            <h2 class="text-center mb-4">Missão e Visão</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 p-4">
+                        <h3>Nossa Missão</h3>
+                        <p>Ser a principal referência em soluções inovadoras, transformando desafios em oportunidades e superando as expectativas de nossos clientes e parceiros.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 p-4">
+                        <h3>Nossa Visão</h3>
+                        <p>Construir um futuro onde a tecnologia e a criatividade se unem para impulsionar o progresso, impactando positivamente a sociedade e o meio ambiente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avaliações -->
+        <section id="avaliacoes" class="mb-5">
+            <h2 class="text-center mb-4">O que dizem sobre nós</h2>
+            <div id="comments-list" aria-live="polite" class="mt-4">
+                <!-- Comentários serão carregados aqui pelo JavaScript -->
+                <p id="no-comments-message" class="text-center">Ainda não há avaliações. Seja o primeiro a contribuir!</p>
+            </div>
+        </section>
+
+        <!-- Formulário de Contribuição -->
+        <section id="contribuicao" class="mb-5">
+            <h2 class="text-center mb-4">Deixe sua Avaliação</h2>
+            <form id="comment-form">
+                <div class="mb-3">
+                    <label for="comment-text" class="form-label">Seu Comentário (máx. 100 caracteres):</label>
+                    <textarea class="form-control" id="comment-text" rows="3" maxlength="100" aria-describedby="char-counter" required></textarea>
+                    <div id="char-counter" class="form-text text-end">0/100</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Avaliação</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer (Placeholder) -->
+    <footer class="container-fluid py-4 bg-light text-center">
+        <p>&copy; 2026 Nome da Empresa. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Bootstrap 5 JS (via CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Externo -->
+    <script src="script.js"></script>
+</body>
+</html>
