@@ -1,0 +1,65 @@
+Relatório de Desenvolvimento da Página 'Sobre'
+Data: 04 de Maio de 2026
+Autor: Manus AI
+
+Este relatório detalha o desenvolvimento e as atualizações da página 'Sobre', focando em acessibilidade (WCAG), design responsivo e funcionalidade de comentários, conforme as diretrizes fornecidas.
+
+### 1. index.html - Estrutura e Conteúdo
+
+O arquivo `index.html` foi criado com uma estrutura HTML5 semântica, garantindo a correta hierarquia e significado dos elementos para navegadores e tecnologias assistivas. As principais características incluem:
+
+*   **HTML5 Semântico:** Utilização de tags como `<header>`, `<main>`, `<section>`, `<nav>`, `<footer>` para estruturar o conteúdo de forma lógica.
+*   **Bootstrap 5 (via CDN):** Integrado para fornecer um framework de estilos e componentes, facilitando a responsividade e o design.
+*   **Google Fonts (Poppins):** A fonte 'Poppins' foi importada e aplicada globalmente para uma estética moderna e legível.
+*   **Acessibilidade:**
+    *   Atributos `lang="pt-BR"` e `charset="UTF-8"` definidos.
+    *   `alt` text para imagens (`top-icon`).
+    *   `aria-label` para elementos interativos.
+    *   `label`s vinculados a `input`s e `textarea`s através do atributo `for` e `id` correspondente.
+    *   `aria-live="polite"` na lista de comentários (`#comments-list`) para anunciar dinamicamente novas entradas a leitores de tela.
+*   **Estrutura de Seções:**
+    *   Topo (ícone).
+    *   Header com título e subtítulo.
+    *   Menu de navegação (placeholder).
+    *   Seção de Introdução.
+    *   Seção de Missão/Visão (utilizando grid do Bootstrap para layout).
+    *   Seção de Avaliações (onde os comentários são exibidos).
+    *   Formulário de Contribuição para novos comentários.
+    *   Footer com informações de copyright.
+*   **Atualização (Campo 'Nome'):** Um campo `<input type="text" id="comment-name" required>` foi adicionado ao formulário de contribuição, permitindo que os usuários insiram seu nome ao deixar um comentário. O `<label>` correspondente foi devidamente vinculado.
+
+### 2. style.css - Estilização e Responsividade
+
+O arquivo `style.css` foi desenvolvido com uma abordagem Mobile First, utilizando Flexbox para layouts flexíveis e garantindo alto contraste para acessibilidade. As principais implementações são:
+
+*   **Tipografia Global:** A fonte 'Poppins' é aplicada a todo o `body`.
+*   **Cores de Alto Contraste:** Definido `background-color: #f8f9fa` (fundo claro) e `color: #212529` (texto escuro) para o `body`, seguindo as diretrizes de acessibilidade.
+*   **Acessibilidade (Outline):** Um `outline` evidente de `3px solid #007bff` com `outline-offset: 2px` foi aplicado a todos os elementos focados (`*:focus`), melhorando a navegação por teclado e a visibilidade para usuários de tecnologias assistivas.
+*   **Mobile First:** Estilos base aplicados diretamente, com ajustes para telas maiores via media queries.
+*   **Responsividade (3 Níveis):**
+    *   **Mobile (padrão):** Estilos base.
+    *   **Tablet (`@media (min-width: 768px)`):** Ajustes para o tamanho do ícone do topo e padding dos cards.
+    *   **Desktop (`@media (min-width: 992px)`):** Ajustes adicionais para o tamanho do ícone do topo e padding dos cards.
+*   **Estilos de Componentes:** Estilos básicos para cards e itens de comentário para uma apresentação limpa e organizada.
+
+### 3. script.js - Funcionalidade e Interatividade
+
+O arquivo `script.js` implementa a lógica de comentários utilizando JavaScript Vanilla e LocalStorage para persistência dos dados. As funcionalidades incluem:
+
+*   **Persistência de Comentários:** Utiliza `localStorage.getItem('comments')` e `localStorage.setItem('comments')` para armazenar e recuperar os comentários, garantindo que eles permaneçam visíveis mesmo após o fechamento do navegador.
+*   **CRUD Básico (Create e Read):**
+    *   **Create:** O formulário de submissão (`#comment-form`) captura o nome e o texto do comentário, valida o comprimento e salva no LocalStorage.
+    *   **Read:** A função `loadComments()` recupera todos os comentários, os ordena do mais recente para o mais antigo e os exibe na seção `#comments-list`.
+*   **Contador de Caracteres:** Um contador visual em tempo real (`#char-counter`) exibe a quantidade de caracteres digitados no campo de comentário, com um limite máximo de 100 caracteres.
+*   **Validação:** Impede o envio de comentários vazios ou que excedam o limite de caracteres. Também valida se o campo 'Nome' está preenchido.
+*   **Mensagem de Vazio:** Se não houver comentários, exibe a mensagem 'Ainda não há avaliações. Seja o primeiro a contribuir!'.
+*   **Acessibilidade (NVDA):**
+    *   A função `displayComment()` cria elementos com `role="comment"`.
+    *   Ao adicionar um novo comentário, um `div` com `aria-live="polite"` é temporariamente adicionado ao `body` para anunciar a nova entrada a leitores de tela, melhorando a experiência para usuários com deficiência visual.
+*   **Atualização (Campo 'Nome'):**
+    *   O `script.js` foi modificado para capturar o valor do novo campo `#comment-name`.
+    *   O objeto `newComment` agora inclui a propriedade `name`.
+    *   A função `displayComment()` foi ajustada para exibir o `comment.name` (em negrito) antes do `comment.text`.
+    *   O campo de nome é limpo após o envio do formulário.
+
+Este conjunto de arquivos oferece uma página 'Sobre' funcional, visualmente agradável e, crucialmente, altamente acessível, atendendo a todas as especificações fornecidas.
