@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const commentForm = document.getElementById('comment-form');
+document.addEventListener('DOMContentLoaded', () =>     const commentForm = document.getElementById(\'comment-form\');
+    const commentNameInput = document.getElementById(\'comment-name\');
     const commentTextarea = document.getElementById('comment-text');
     const charCounter = document.getElementById('char-counter');
     const commentsList = document.getElementById('comments-list');
@@ -29,16 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Função para exibir um único comentário
-    const displayComment = (comment) => {
-        const commentDiv = document.createElement('div');
-        commentDiv.classList.add('comment-item');
-        commentDiv.setAttribute('role', 'comment');
+    const displayComment = (comment)        const commentDiv = document.createElement(\'div\');
+        commentDiv.classList.add(\'comment-item\');
+        commentDiv.setAttribute(\'role\', \'comment\');
 
-        const commentParagraph = document.createElement('p');
+        const commentAuthor = document.createElement(\'p\');
+        commentAuthor.classList.add(\'fw-bold\');
+        commentAuthor.textContent = comment.name;
+        commentDiv.appendChild(commentAuthor);
+
+        const commentParagraph = document.createElement(\'p\');
         commentParagraph.textContent = comment.text;
-        commentDiv.appendChild(commentParagraph);
-
-        const date = new Date(comment.timestamp);
+        commentDiv.appendChild(commentParagraph);      const date = new Date(comment.timestamp);
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
         const timeSpan = document.createElement('span');
         timeSpan.classList.add('text-muted', 'small');
@@ -52,7 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
     commentForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
+        const commentName = commentNameInput.value.trim();
         const commentText = commentTextarea.value.trim();
+
+        if (commentName.length === 0) {
+            alert(\'Por favor, digite seu nome antes de enviar.\');
+            return;
+        }
 
         if (commentText.length === 0) {
             alert('Por favor, digite um comentário antes de enviar.');
@@ -65,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const newComment = {
+            name: commentName,
             text: commentText,
             timestamp: Date.now() // Salva o timestamp para ordenação
         };
@@ -72,9 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const comments = JSON.parse(localStorage.getItem('comments')) || [];
         comments.push(newComment);
         localStorage.setItem('comments', JSON.stringify(comments));
-
-        commentTextarea.value = ''; // Limpa o textarea
-        updateCharCounter(); // Atualiza o contador
+        commentNameInput.value = \'\'; // Limpa o campo de nome
+        commentTextarea.value = \'\'; // Limpa o textarea        updateCharCounter(); // Atualiza o contador
         loadComments(); // Recarrega e exibe os comentários
 
         // Anuncia a nova entrada para leitores de tela

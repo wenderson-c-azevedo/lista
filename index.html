@@ -86,6 +86,10 @@
             <h2 class="text-center mb-4">Deixe sua Avaliação</h2>
             <form id="comment-form">
                 <div class="mb-3">
+                    <label for="comment-name" class="form-label">Seu Nome:</label>
+                    <input type="text" class="form-control" id="comment-name" required>
+                </div>
+                <div class="mb-3">
                     <label for="comment-text" class="form-label">Seu Comentário (máx. 100 caracteres):</label>
                     <textarea class="form-control" id="comment-text" rows="3" maxlength="100" aria-describedby="char-counter" required></textarea>
                     <div id="char-counter" class="form-text text-end">0/100</div>
